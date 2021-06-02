@@ -1,4 +1,6 @@
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,4 +18,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+:root {
+  --max-width: "1156px";
+
+  /* ? color */
+  --primary-color: #1513b7;
+  --white: #fff;
+  --black: #000;
+  --body-color: #e7e7e9;
 }

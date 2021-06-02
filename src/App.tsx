@@ -1,11 +1,10 @@
-import "./App.css";
-import Home from "./modules/home";
+import AssigmentOne from "./modules/assignmentOne";
 
 function App() {
   return (
     <>
       <div>
-        <Home />
+        <AssigmentOne/>
       </div>
     </>
   );
