@@ -1,10 +1,13 @@
 import "./App.css";
+import Home from "./modules/home";
 
 function App() {
   return (
-    <div className={"App"}>
-      <h1>{"Harshit gupta"}</h1>
-    </div>
+    <>
+      <div>
+        <Home />
+      </div>
+    </>
   );
 }
 
