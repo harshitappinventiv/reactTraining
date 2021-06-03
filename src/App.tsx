@@ -1,10 +1,12 @@
-import AssigmentOne from "./modules/assignmentOne";
+// import AssigmentOne from "./modules/assignmentOne";
+import AssigmentTwo from "./modules/assigmentTwo";
 
 function App() {
   return (
     <>
       <div>
-        <AssigmentOne/>
+        {/* <AssigmentOne/> */}
+        <AssigmentTwo />
       </div>
     </>
   );
