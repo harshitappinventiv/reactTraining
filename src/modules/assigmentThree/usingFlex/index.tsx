@@ -21,37 +21,35 @@ const MainPage = styled.div`
 const Sidebar = styled.div`
   flex-basis: 20%;
   @media (max-width: 900px) {
-  flex-basis: 0%;
-  display: none;
+    flex-basis: 0%;
+    display: none;
   }
 `;
 
 const ContentSection = styled.div`
   flex-basis: 80%;
   position: relative;
+  z-index: 0;
+  &::before {
+    content: "";
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 411px;
+    background-image: linear-gradient(var(--light-cerule-color) 100%, #fff 0%);
+    border-bottom-left-radius: 150px;
+    opacity: 0.5;
+    z-index: -1;
+  }
   @media (max-width: 900px) {
     flex-basis: 100%;
   }
 `;
 
-// const BackgroundStyle = styled.div`
-//   position: relative;
-//   &::before {
-//     content: "";
-//     top: 0;
-//     position: absolute;
-//     width: 100%;
-//     height: 411px;
-//     background-image: linear-gradient(var(--light-cerule-color), #fff);
-//     border-bottom-left-radius: 150px;
-//     opacity: 0.5;
-//   }
-// `;
-
 const Section = styled.div`
   padding: 30px 50px;
   @media (max-width: 900px) {
-  padding: 30px 20px;
+    padding: 30px 20px;
   }
 `;
 
@@ -75,7 +73,6 @@ function UsingFlex() {
             <Slidebar />
           </Sidebar>
           <ContentSection>
-            {/* <BackgroundStyle></BackgroundStyle> */}
             <Section>
               <Header />
               <Cards data={data} />
