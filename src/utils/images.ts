@@ -4,12 +4,16 @@ const MAIN_HEADER = "../images/freeimg_94050260freejpg850.jpg";
 const TOOL_ONE = "../images/web-maintenance.png";
 const TOOL_TWO = "../images/configuration.png";
 
+// assigmentThree IMAGES
+const LOGO = "/images/logo.svg";
+
 const LocalsImages = {
   BABY,
   REACT_LOGO,
   MAIN_HEADER,
   TOOL_ONE,
-  TOOL_TWO
+  TOOL_TWO,
+  LOGO,
 };
 
 export default LocalsImages;

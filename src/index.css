@@ -28,4 +28,12 @@ code {
   --white: #fff;
   --black: #000;
   --body-color: #e7e7e9;
+
+  /* ? assignment three color    */
+  --ice-blue-color: #f9fdff;
+  --dark-blue-color: #3a4e6f;
+  --cerule-color: #009cde;
+  --light-cerule-color: rgba(0, 156, 222, 0.3);
+  --dark-lime-color: #86c306;
+  --light-lime-color: rgba(134, 195, 6, 0.3);
 }
