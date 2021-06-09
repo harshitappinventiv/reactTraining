@@ -12,20 +12,20 @@ const Root = styled.div`
 const Container = styled.div`
   max-width: 90%;
   margin: 0 auto;
-  @media (min-width: 900px) {
+  @media (min-width: 1000px) {
     max-width: 1256px;
   }
 `;
 
 const MainPage = styled.div`
-  @media (min-width: 900px) {
+  @media (min-width: 1050px) {
     display: flex;
   }
 `;
 
 const Sidebar = styled.div`
   display: none;
-  @media (min-width: 900px) {
+  @media (min-width: 1050px) {
     display: block;
     flex-basis: 20%;
   }
@@ -45,10 +45,10 @@ const ContentSection = styled.div`
     opacity: 0.5;
     z-index: -1;
   }
-  @media (min-width: 900px) {
+  @media (min-width: 1050px) {
     flex-basis: 80%;
   }
-  @media (max-width: 900px) {
+  @media (max-width: 1050px) {
     &::before {
       display: none;
     }

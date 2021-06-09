@@ -8,9 +8,9 @@ import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
 
 const Root = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  justify-content: space-between;
 `;
 
 const RightDiv = styled.div`
@@ -22,7 +22,7 @@ const LeftDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  @media (max-width: 900px) {
+  @media (max-width: 1050px) {
     display: none;
   }
 `;
@@ -93,15 +93,15 @@ const Input = styled.input`
 // ******************************* mobile style ****************************
 const MobileRoot = styled.div`
   display: none;
-  @media (max-width: 900px) {
+  @media (max-width: 1050px) {
     display: block;
   }
 `;
 
 const Mobile = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 10px;
 `;
 
 const MobileRightDiv = styled.div`
@@ -134,6 +134,7 @@ const Logo = styled.img`
 const MobileLeftDiv = styled.div`
   display: flex;
   align-items: center;
+  justify-self: end;
 `;
 
 const mobileNavbar = () => (
