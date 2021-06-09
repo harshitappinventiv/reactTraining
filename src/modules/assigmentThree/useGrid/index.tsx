@@ -10,24 +10,28 @@ const Root = styled.div`
 `;
 
 const Container = styled.div`
-  max-width: 1256px;
+  max-width: 90%;
   margin: 0 auto;
+  @media (min-width: 900px) {
+    max-width: 1256px;
+  }
 `;
 
 const MainPage = styled.div`
-  display: flex;
+  @media (min-width: 900px) {
+    display: flex;
+  }
 `;
 
 const Sidebar = styled.div`
-  flex-basis: 20%;
-  @media (max-width: 900px) {
-    flex-basis: 0%;
-    display: none;
+  display: none;
+  @media (min-width: 900px) {
+    display: block;
+    flex-basis: 20%;
   }
 `;
 
 const ContentSection = styled.div`
-  flex-basis: 80%;
   position: relative;
   z-index: 0;
   &::before {
@@ -41,8 +45,10 @@ const ContentSection = styled.div`
     opacity: 0.5;
     z-index: -1;
   }
+  @media (min-width: 900px) {
+    flex-basis: 80%;
+  }
   @media (max-width: 900px) {
-    flex-basis: 100%;
     &::before {
       display: none;
     }
@@ -50,9 +56,9 @@ const ContentSection = styled.div`
 `;
 
 const Section = styled.div`
-  padding: 30px 50px;
-  @media (max-width: 900px) {
-    padding: 30px 20px;
+  padding: 20px 0;
+  @media (min-width: 900px) {
+    padding: 20px 50px;
   }
 `;
 
@@ -67,7 +73,7 @@ const data = [
   "Referral programme",
 ];
 
-function UsingFlex() {
+function UseGrid() {
   return (
     <Root>
       <Container>
@@ -87,4 +93,4 @@ function UsingFlex() {
   );
 }
 
-export default UsingFlex;
+export default UseGrid;
