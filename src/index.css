@@ -36,4 +36,9 @@ code {
   --light-cerule-color: rgba(0, 156, 222, 0.3);
   --dark-lime-color: #86c306;
   --light-lime-color: rgba(134, 195, 6, 0.3);
+
+  /* ? assignment four color    */
+  --dark-grey-color: #373737;
+  --dark-greyTwo-color: #424242;
+  --background-color: #f4f6f8;
 }
