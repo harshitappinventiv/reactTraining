@@ -9,7 +9,7 @@ import News from "./news";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      marginTop: 75,
+      marginTop: 95,
       padding: theme.spacing(0, 1),
     },
   })
