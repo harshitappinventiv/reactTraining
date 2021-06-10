@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "space-between",
       height: "64px",
       padding: theme.spacing(0, 2),
+      zIndex: theme.zIndex.appBar
     },
     switchButton: {
       borderRadius: "50%",
@@ -65,7 +66,7 @@ function Header() {
         boxShadow={1}
       >
         <IconButton className={classes.switchButton}>
-          <Switch size="small" name="checkedA" />
+          <Switch size="small" name="checkedA" checked={true}/>
           <Typography variant="body1" className={classes.switchCaption}>
             on
           </Typography>

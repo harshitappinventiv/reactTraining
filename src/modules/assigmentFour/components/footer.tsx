@@ -24,8 +24,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      padding: theme.spacing(0, 1),
-      margin: theme.spacing(1, 0),
+      padding: theme.spacing(1, 1),
       backgroundColor: "var(--background-color)",
     },
     heading: {
@@ -41,8 +40,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     link: {
       textDecoration: "underline",
+      cursor: "pointer",
       "&:not(:last-child)": {
-        marginBottom: 2,
+        marginBottom: 3,
       },
     },
     btn: {

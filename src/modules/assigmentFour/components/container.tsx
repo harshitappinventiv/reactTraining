@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     mainPage: {
       marginLeft: 62,
+      backgroundColor: "var(--background-color)",
+      width: "100%",
     },
   })
 );
