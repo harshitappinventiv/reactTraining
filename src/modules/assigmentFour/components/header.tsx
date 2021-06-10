@@ -11,7 +11,7 @@ import {
 
 // ******************************* icons and images ****************************
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
+import FingerprintIcon from '@material-ui/icons/Fingerprint';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -84,7 +84,7 @@ function Header() {
             className={[classes.login, classes.signUp].join(" ")}
             variant="contained"
             color="primary"
-            startIcon={<LockOpenIcon />}
+            startIcon={<FingerprintIcon />}
           >
             log in
           </Button>
