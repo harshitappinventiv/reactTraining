@@ -2,7 +2,8 @@
 // import AssigmentTwo from "./modules/assigmentTwo";
 // import AssigmentThreeFlex from "./modules/assigmentThree/usingFlex";
 // import AssigmentThreeGridMobileFirst from "./modules/assigmentThree/useGrid";
-import AssigmentFour from "./modules/assigmentFour";
+// import AssigmentFour from "./modules/assigmentFour";
+import SushantSirAssignment from "./modules/sushantSirAssignment";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         {/* <AssigmentTwo /> */}
         {/* <AssigmentThreeFlex /> */}
         {/* <AssigmentThreeGridMobileFirst /> */}
-        <AssigmentFour />
+        {/* <AssigmentFour /> */}
+        <SushantSirAssignment />
       </div>
     </>
   );

@@ -3,6 +3,14 @@ const REACT_LOGO = "../images/logo.svg";
 const MAIN_HEADER = "../images/freeimg_94050260freejpg850.jpg";
 const TOOL_ONE = "../images/web-maintenance.png";
 const TOOL_TWO = "../images/configuration.png";
+const LOGIN_IMG =
+  "https://images.unsplash.com/photo-1618044619888-009e412ff12a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80";
+const MOVIE_JUDY =
+  "https://images.unsplash.com/photo-1590179068383-b9c69aacebd3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80";
+const MOVIE_GROOT =
+  "https://images.unsplash.com/photo-1596727147705-61a532a659bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80";
+const MOVIE_LOKI =
+  "https://images.unsplash.com/photo-1601645191163-3fc0d5d64e35?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80";
 
 // assigmentThree IMAGES
 const LOGO = "/images/logo.svg";
@@ -14,6 +22,10 @@ const LocalsImages = {
   TOOL_ONE,
   TOOL_TWO,
   LOGO,
+  LOGIN_IMG,
+  MOVIE_JUDY,
+  MOVIE_GROOT,
+  MOVIE_LOKI,
 };
 
 export default LocalsImages;
