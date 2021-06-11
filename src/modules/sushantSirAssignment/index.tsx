@@ -16,6 +16,9 @@ import LocalsImage from "../../utils/images";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    mainPage: {
+      backgroundImage: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
+    },
     root: {
       maxWidth: "1100px",
       margin: theme.spacing(0, "auto"),
@@ -50,8 +53,6 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-
-
 function SushantSirAssignment() {
   const classes = useStyles();
   const [loginOpen, setLoginOpen] = useState(false);
@@ -66,7 +67,7 @@ function SushantSirAssignment() {
   };
 
   return (
-    <>
+    <div className={classes.mainPage}>
       <div className={classes.root}>
         {!signupOpen && !loginOpen && (
           <Grid container className={classes.container} component={Box}>
@@ -95,9 +96,8 @@ function SushantSirAssignment() {
         )}
         {loginOpen && <LoginScreen />}
         {signupOpen && <SignupScreen />}
-        {/* <MovieHomeScreen movieData={movieData} /> */}
       </div>
-    </>
+    </div>
   );
 }
 

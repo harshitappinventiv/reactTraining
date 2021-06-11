@@ -35,6 +35,7 @@ function SignupScreen() {
 
   const onSubmit = (values: any) => {
     console.log(values);
+    localStorage.setItem("user", JSON.stringify(values));
     values ? setSignupSuccess(true) : setSignupSuccess(false);
   };
 

@@ -33,7 +33,7 @@ const createMovieData = (
 const movieData = [
   createMovieData(1, LocalsImage.MOVIE_JUDY, "Judy", "3", "23/8/2003"),
   createMovieData(2, LocalsImage.MOVIE_GROOT, "Groot", "4", "02/8/2010"),
-  createMovieData(3, LocalsImage.MOVIE_LOKI, "Loki", "5", "02/6/2021"),
+  createMovieData(3, LocalsImage.MOVIE_LOKI, "Loki", "5", "11/6/2021"),
 ];
 
 const initialValues = {
@@ -49,10 +49,16 @@ const validationSchema = Yup.object({
 
 function LoginScreen() {
   const [loginSuccess, setLoginSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   const onSubmit = (values: any) => {
     console.log(values);
-    values ? setLoginSuccess(true) : setLoginSuccess(false);
+    const userData: any = JSON.parse(localStorage.getItem("user") || "{}");
+    console.log(userData);
+
+    userData.gmail === values.gmail && userData.password === values.password
+      ? setLoginSuccess(true)
+      : setError(true);
   };
 
   return (
@@ -89,6 +95,7 @@ function LoginScreen() {
               <Button type="submit">Submit</Button>
             </Form>
           </Formik>
+          {error && <h1>password and email is wrong</h1>}
         </div>
       ) : (
         <MovieHomeScreen movieData={movieData} />

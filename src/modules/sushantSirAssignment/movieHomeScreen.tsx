@@ -10,7 +10,7 @@ import {
   Typography,
   Box,
 } from "@material-ui/core";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 
 type AppProps = {
   movieData: any;
@@ -81,4 +81,4 @@ function MovieHomeScreen({ movieData }: AppProps) {
   );
 }
 
-export default MovieHomeScreen;
+export default memo(MovieHomeScreen);
