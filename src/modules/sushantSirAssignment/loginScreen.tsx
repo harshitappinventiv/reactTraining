@@ -2,11 +2,18 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { SignupScehma } from "./signupScreen";
 
 // ******************************* components ****************************
 import MovieHomeScreen from "./movieHomeScreen";
 
+// ? ******************************* components ****************************
 import LocalsImage from "../../utils/images";
+
+interface LoginSchema {
+  gmail: string;
+  password: string;
+}
 
 const InputName = styled.div`
   height: 50px;
@@ -41,7 +48,7 @@ const initialValues = {
   password: "",
 };
 
-// * yup validitiones
+// ? * yup validitiones
 const validationSchema = Yup.object({
   gmail: Yup.string().email("Invaild gmail format").required("required!"),
   password: Yup.string().required("Required!"),
@@ -51,12 +58,14 @@ function LoginScreen() {
   const [loginSuccess, setLoginSuccess] = useState(false);
   const [error, setError] = useState(false);
 
-  const onSubmit = (values: any) => {
+  const onSubmit = (values: LoginSchema) => {
     console.log(values);
-    const userData: any = JSON.parse(localStorage.getItem("user") || "{}");
-    console.log(userData);
+    const userData: SignupScehma = JSON.parse(
+      localStorage.getItem("user") || "{}"
+    );
+    const { gmail, password } = userData;
 
-    userData.gmail === values.gmail && userData.password === values.password
+    gmail === values.gmail && password === values.password
       ? setLoginSuccess(true)
       : setError(true);
   };

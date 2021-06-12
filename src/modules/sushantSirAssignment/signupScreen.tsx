@@ -6,6 +6,12 @@ import * as Yup from "yup";
 // ******************************* components ****************************
 import LoginScreen from "./loginScreen";
 
+export interface SignupScehma {
+  name: string;
+  gmail: string;
+  password: string;
+}
+
 const InputName = styled.div`
   height: 50px;
 `;
@@ -33,7 +39,7 @@ const validationSchema = Yup.object({
 function SignupScreen() {
   const [signupSuccess, setSignupSuccess] = useState(false);
 
-  const onSubmit = (values: any) => {
+  const onSubmit = (values: SignupScehma) => {
     console.log(values);
     localStorage.setItem("user", JSON.stringify(values));
     values ? setSignupSuccess(true) : setSignupSuccess(false);

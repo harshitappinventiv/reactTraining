@@ -12,6 +12,7 @@ import {
 import LoginScreen from "./loginScreen";
 import SignupScreen from "./signupScreen";
 
+// ? ******************************* images ****************************
 import LocalsImage from "../../utils/images";
 
 const useStyles = makeStyles((theme: Theme) =>

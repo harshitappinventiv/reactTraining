@@ -11,7 +11,8 @@ const MOVIE_GROOT =
   "https://images.unsplash.com/photo-1596727147705-61a532a659bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80";
 const MOVIE_LOKI =
   "https://images.unsplash.com/photo-1601645191163-3fc0d5d64e35?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80";
-
+const MOVIE_INFINITY_WAR =
+  "https://cdn.pixabay.com/photo/2019/05/26/01/13/avengers-4229465_960_720.jpg";
 // assigmentThree IMAGES
 const LOGO = "/images/logo.svg";
 
@@ -26,6 +27,7 @@ const LocalsImages = {
   MOVIE_JUDY,
   MOVIE_GROOT,
   MOVIE_LOKI,
+  MOVIE_INFINITY_WAR,
 };
 
 export default LocalsImages;
