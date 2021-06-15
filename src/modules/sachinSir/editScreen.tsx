@@ -87,8 +87,28 @@ function EditScreen() {
 
   const updateUser = (id: any, updatedUser: any) => {
     setEditing(false);
-    // console.log("id", id, params, updatedUser);
-    if (typeof updatedUser === "string") {
+    const foundArray: any = apiData.find((item: any) => item?.[params]);
+
+    if (
+      typeof foundArray?.[params] === "object" &&
+      Array.isArray(foundArray?.[params])
+    ) {
+      // console.log(
+      //   "id",
+      //   id,
+      //   params,
+      //   updatedUser,
+      //   foundArray?.[params].filter((data: any) => data.id !== id)
+      // );
+      const filterData = foundArray?.[params].filter(
+        (data: any) => data.id !== id
+      );
+      setApiData(
+        apiData.map((user: any) =>
+          user?.[params] ? { [params]: [...filterData, updatedUser] } : user
+        )
+      );
+    } else if (typeof updatedUser === "string") {
       setApiData(
         apiData.map((user: any) =>
           user?.[params] ? { [params]: updatedUser } : user
