@@ -76,7 +76,7 @@ function EditScreen() {
     localStorage.setItem("apiData", JSON.stringify(apiData));
   }, [apiData]);
 
-  const found: any = apiData.find((item: any) => item[params]);
+  const found: any = apiData.find((item: any) => item?.[params]);
   const checkDataType: any = found?.[params];
 
   // * edit function
@@ -88,11 +88,19 @@ function EditScreen() {
   const updateUser = (id: any, updatedUser: any) => {
     setEditing(false);
     // console.log("id", id, params, updatedUser);
-    setApiData(
-      apiData.map((user: any) =>
-        user[params]?.id === id ? { [params]: updatedUser } : user
-      )
-    );
+    if (typeof updatedUser === "string") {
+      setApiData(
+        apiData.map((user: any) =>
+          user?.[params] ? { [params]: updatedUser } : user
+        )
+      );
+    } else {
+      setApiData(
+        apiData.map((user: any) =>
+          user?.[params]?.id === id ? { [params]: updatedUser } : user
+        )
+      );
+    }
   };
 
   const handleClose = () => {
@@ -230,47 +238,49 @@ function EditScreen() {
       >
         <div style={modalStyle} className={classes.paper}>
           {typeof currentUser === "string" ? (
-            <form
-              className={classes.root}
-              onSubmit={(event) => {
-                event.preventDefault();
-                if (!string) return;
-                // console.log(string);
-                editing && updateUser(params, string);
-                resetAddUser();
-              }}
-            >
-              <Box m={1} p={1}>
-                <label>String</label>
-                <input
-                  type="text"
-                  name="string"
-                  value={string}
-                  onChange={handleStringChange}
-                />
-              </Box>
-              <Box
-                m={1}
-                p={1}
-                display="flex"
-                alignItems="center"
-                justifyContent="space-between"
+            <Box>
+              <form
+                className={classes.root}
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  if (!string) return;
+                  // console.log(string);
+                  editing && updateUser(params, string);
+                  resetAddUser();
+                }}
               >
-                <Button color="primary" variant="contained" type="submit">
-                  {editing ? "Update user" : "Add user"}
-                </Button>
-                {editing && (
-                  <Button
-                    color="secondary"
-                    variant="contained"
-                    onClick={resetAddUser}
-                    className="button muted-button"
-                  >
-                    Cancel
+                <Box m={1} p={1}>
+                  <label>String</label>
+                  <input
+                    type="text"
+                    name="string"
+                    value={string}
+                    onChange={handleStringChange}
+                  />
+                </Box>
+                <Box
+                  m={1}
+                  p={1}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <Button color="primary" variant="contained" type="submit">
+                    {editing ? "Update user" : "Add user"}
                   </Button>
-                )}
-              </Box>
-            </form>
+                  {editing && (
+                    <Button
+                      color="secondary"
+                      variant="contained"
+                      onClick={resetAddUser}
+                      className="button muted-button"
+                    >
+                      Cancel
+                    </Button>
+                  )}
+                </Box>
+              </form>
+            </Box>
           ) : (
             <EditUserForm
               editing={editing}
