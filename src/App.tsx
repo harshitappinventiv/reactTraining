@@ -1,21 +1,30 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import AssigmentOne from "./modules/assignmentOne";
 // import AssigmentTwo from "./modules/assigmentTwo";
 // import AssigmentThreeFlex from "./modules/assigmentThree/usingFlex";
 // import AssigmentThreeGridMobileFirst from "./modules/assigmentThree/useGrid";
 // import AssigmentFour from "./modules/assigmentFour";
-import SushantSirAssignment from "./modules/sushantSirAssignment";
+// import SushantSirAssignment from "./modules/sushantSirAssignment";
+import SachinSir from "./modules/sachinSir";
+import EditScreen from "./modules/sachinSir/editScreen";
 
 function App() {
   return (
     <>
-      <div>
-        {/* <AssigmentOne/> */}
-        {/* <AssigmentTwo /> */}
-        {/* <AssigmentThreeFlex /> */}
-        {/* <AssigmentThreeGridMobileFirst /> */}
-        {/* <AssigmentFour /> */}
-        <SushantSirAssignment />
-      </div>
+      <Router>
+        <div>
+          {/* <AssigmentOne/> */}
+          {/* <AssigmentTwo /> */}
+          {/* <AssigmentThreeFlex /> */}
+          {/* <AssigmentThreeGridMobileFirst /> */}
+          {/* <AssigmentFour /> */}
+          {/* <SushantSirAssignment /> */}
+          <Switch>
+            <Route exact path="/" component={SachinSir} />
+            <Route path="/editScreen/:params" component={EditScreen} />
+          </Switch>
+        </div>
+      </Router>
     </>
   );
 }

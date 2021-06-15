@@ -115,7 +115,7 @@ function Sidebar() {
             <HelpIcon fontSize="large" className={classes.icon} />
           </ListItem>
         </LightTooltip>
-        <LightTooltip title="Aboout" placement="right">
+        <LightTooltip title="About" placement="right">
           <ListItem className={classes.listItem}>
             <CopyrightIcon fontSize="large" className={classes.icon} />
           </ListItem>
