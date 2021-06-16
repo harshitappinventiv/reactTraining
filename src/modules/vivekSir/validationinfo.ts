@@ -1,5 +1,14 @@
-export default function validateInfo(values: any) {
-  let errors: any = {};
+import { UserSchema } from "./";
+
+export interface Errors {
+  username?: string;
+  gmail?: string;
+  degree?: string;
+  hobbie?: string;
+}
+
+export default function validateInfo(values: UserSchema) {
+  let errors: Errors = {};
 
   if (!values.username.trim()) {
     errors.username = "Username required";

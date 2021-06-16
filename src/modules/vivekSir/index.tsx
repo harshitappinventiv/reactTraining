@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   makeStyles,
   createStyles,
@@ -9,7 +9,10 @@ import {
   Paper,
   IconButton,
   InputBase,
+  CircularProgress,
+  Backdrop,
 } from "@material-ui/core";
+import useDebounce from "./useDebounce";
 
 // ******************************* components *******************************
 import FormAdd from "./formAdd";
@@ -18,7 +21,7 @@ import UserTable from "./userTable";
 // ******************************* icons and images ****************************
 import SearchIcon from "@material-ui/icons/Search";
 
-interface UserSchema {
+export interface UserSchema {
   id: number;
   username: string;
   gmail: string;
@@ -66,14 +69,31 @@ const useStyles = makeStyles((theme: Theme) =>
     iconButton: {
       padding: 10,
     },
+    backdrop: {
+      zIndex: theme.zIndex.drawer + 1,
+      color: "#fff",
+    },
   })
 );
 
 function VivekSir() {
   const allUserData = [
-    createData(1, "Harshit gupta", "harshit@gmail.com", "BSc", "Cricket"),
-    createData(2, "Jhon", "jhon@gmail.com", "Bcom", "football"),
+    createData(
+      Math.floor(Math.random() * 1000),
+      "Harshit gupta",
+      "harshit@gmail.com",
+      "BSc",
+      "Cricket"
+    ),
+    createData(
+      Math.floor(Math.random() * 1000),
+      "Jhon",
+      "jhon@gmail.com",
+      "Bcom",
+      "football"
+    ),
   ];
+
   const initialFormState = {
     id: null,
     username: "",
@@ -81,11 +101,42 @@ function VivekSir() {
     degree: "",
     hobbie: "",
   };
+
   const classes = useStyles();
   const [userData, setUserData] = useState(allUserData);
   const [editing, setEditing] = useState(false);
   const [currentUser, setCurrentUser] = useState(initialFormState);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredCountries, setFilteredCountries] = useState<typeof userData>(
+    []
+  );
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+
+  //   *? <- !-> debounding hook ********************************
+  const debouncedSearchTerm = useDebounce(searchTerm, 1000);
+
+  useEffect(() => {
+    //search using filter function and implement debounding
+
+    if (debouncedSearchTerm) {
+      setIsSearching(true);
+      console.log("debouncedSearchTerm", debouncedSearchTerm);
+      setTimeout(() => {
+        setFilteredCountries(
+          userData.filter((data: UserSchema) =>
+            data.username
+              .toLowerCase()
+              .includes(debouncedSearchTerm.toLowerCase())
+          )
+        );
+        setIsSearching(false);
+      }, 2000);
+    }
+  }, [debouncedSearchTerm, userData]);
+
+  //   console.log(isSearching);
 
   const handleOpen = () => {
     setOpen(true);
@@ -93,20 +144,55 @@ function VivekSir() {
 
   const handleClose = () => {
     setOpen(false);
+    setEditing(false);
+    setCurrentUser(initialFormState);
   };
 
-  const deleteUser = (id: any) => {
-    setEditing(false);
-    setUserData(userData.filter((user) => user.id !== id));
+  // * <-!->  for search handler
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const addUser = (user: UserSchema) => {
+    setLoading(true);
+    setTimeout(() => {
+      user.id = Math.floor(Math.random() * 1000);
+      setUserData([...userData, user]);
+      setLoading(false);
+    }, 2000);
+  };
+
+  const updateUser = (id: number, updatedUser: UserSchema) => {
+    setLoading(true);
+    setTimeout(() => {
+      setEditing(false);
+      setUserData(
+        userData.map((user: UserSchema) =>
+          user.id === id ? updatedUser : user
+        )
+      );
+      setLoading(false);
+    }, 2000);
+  };
+
+  const deleteUser = (id: number) => {
+    setLoading(true);
+    setTimeout(() => {
+      setEditing(false);
+      setUserData(userData.filter((user: UserSchema) => user.id !== id));
+      setLoading(false);
+    }, 2000);
   };
 
   const editRow = (user: any) => {
+    handleOpen();
     setEditing(true);
     setCurrentUser(user);
   };
 
   function submitForm() {
-    console.log("return");
+    //   for some extra work purposes
+    // console.log("return");
   }
 
   return (
@@ -117,7 +203,7 @@ function VivekSir() {
             Harshit
           </Typography>
           <Button variant="contained" color="primary" onClick={handleOpen}>
-            Add
+            Add User
           </Button>
         </Box>
         <Box my={2}>
@@ -133,22 +219,32 @@ function VivekSir() {
               className={classes.input}
               placeholder="Search by name, gmail"
               inputProps={{ "aria-label": "search google maps" }}
+              onChange={handleSearch}
+              value={searchTerm}
             />
           </Paper>
         </Box>
+        <UserTable
+          userData={debouncedSearchTerm ? filteredCountries : userData}
+          editRow={editRow}
+          deleteUser={deleteUser}
+          isSearching={isSearching}
+        />
         <FormAdd
           submitForm={submitForm}
           open={open}
           handleClose={handleClose}
-        />
-        <UserTable
-          userData={userData}
-          editRow={editRow}
-          deleteUser={deleteUser}
-          handleOpen={handleOpen}
-          handleClose={handleClose}
+          editing={editing}
+          setEditing={setEditing}
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+          updateUser={updateUser}
+          addUser={addUser}
         />
       </Box>
+      <Backdrop className={classes.backdrop} open={loading}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </div>
   );
 }
