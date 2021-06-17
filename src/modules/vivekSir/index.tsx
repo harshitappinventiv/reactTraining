@@ -107,9 +107,7 @@ function VivekSir() {
   const [editing, setEditing] = useState(false);
   const [currentUser, setCurrentUser] = useState(initialFormState);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredCountries, setFilteredCountries] = useState<typeof userData>(
-    []
-  );
+  const [filteredUserData, setFilteredUserData] = useState<typeof userData>([]);
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
@@ -124,7 +122,7 @@ function VivekSir() {
       setIsSearching(true);
       console.log("debouncedSearchTerm", debouncedSearchTerm);
       setTimeout(() => {
-        setFilteredCountries(
+        setFilteredUserData(
           userData.filter((data: UserSchema) =>
             data.username
               .toLowerCase()
@@ -225,7 +223,7 @@ function VivekSir() {
           </Paper>
         </Box>
         <UserTable
-          userData={debouncedSearchTerm ? filteredCountries : userData}
+          userData={debouncedSearchTerm ? filteredUserData : userData}
           editRow={editRow}
           deleteUser={deleteUser}
           isSearching={isSearching}
