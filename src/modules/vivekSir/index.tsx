@@ -215,8 +215,8 @@ function VivekSir() {
             </IconButton>
             <InputBase
               className={classes.input}
-              placeholder="Search by name, gmail"
-              inputProps={{ "aria-label": "search google maps" }}
+              placeholder="Search by name"
+              inputProps={{ "aria-label": "search by name" }}
               onChange={handleSearch}
               value={searchTerm}
             />
