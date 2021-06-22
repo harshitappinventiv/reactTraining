@@ -7,7 +7,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 // import SushantSirAssignment from "./modules/sushantSirAssignment";
 // import SachinSir from "./modules/sachinSir";
 // import EditScreen from "./modules/sachinSir/editScreen";
-import VivekSir from "./modules/vivekSir";
+// import VivekSir from "./modules/vivekSir";
+import ShubhamSir from "./modules/shubhamSir";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
             <Route exact path="/" component={SachinSir} />
             <Route path="/editScreen/:params" component={EditScreen} />
           </Switch> */}
-          <VivekSir />
+          {/* <VivekSir /> */}
+          <ShubhamSir />
         </div>
       </Router>
     </>

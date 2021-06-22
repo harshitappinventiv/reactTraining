@@ -20,6 +20,10 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+}
+
 :root {
   --max-width: "1156px";
 
