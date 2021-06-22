@@ -62,7 +62,7 @@ const Signup = ({ setLoading }: AppProps) => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       const id = uuidv4();
-      console.log(values, id);
+    //   console.log(values, id);
       setLoading(true);
       setTimeout(() => {
         localStorage.setItem("accessToken", id);

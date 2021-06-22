@@ -19,7 +19,6 @@ type AppProps = {
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {},
     logo: {
       color: "var(--white)",
     },
@@ -36,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
 function Header({ handleLogOut, token }: AppProps) {
   const classes = useStyles();
   const [tokenn, setTokenn] = useState(token);
-  
+
   useEffect(() => {
     setTokenn(!!localStorage.getItem("accessToken"));
   });

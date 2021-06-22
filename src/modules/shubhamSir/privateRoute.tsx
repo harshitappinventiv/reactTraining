@@ -3,8 +3,8 @@ import { Route, Redirect } from "react-router-dom";
 
 const PrivateRoute = ({ component: Component, ...rest }: any) => {
   return (
-    // Show the component only when the user is logged in
-    // Otherwise, redirect the user to /signin page
+    // Show the component only when the access token is available in local storage in
+    // Otherwise, redirect the user to /signuppage
     <Route
       {...rest}
       render={(props) =>
