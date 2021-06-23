@@ -60,15 +60,16 @@ const Signup = ({ setLoading }: AppProps) => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       const id = uuidv4();
-      const URL = "https://reqres.in/api/users";
+      const endPoint = "api/users";
+
       setLoading(true);
       api.createPostApiCall(
-        URL,
+        endPoint,
         values,
         (response: any) => {
           const { data, status } = response;
           if (status === 201) {
-            console.log(data);
+            // console.log(data);
             localStorage.setItem("accessToken", id);
             setValues(initialFormState);
             setLoading(false);
@@ -122,7 +123,7 @@ const Signup = ({ setLoading }: AppProps) => {
           />
 
           <Button color="primary" variant="contained" type="submit">
-            Sign Up
+            Login
           </Button>
         </Box>
       </form>
