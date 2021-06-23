@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import { Link, NavLink } from "react-router-dom";
 import lime from "@material-ui/core/colors/lime";
+import api from "./api";
 
 type AppProps = {
   handleLogOut?: () => void;
@@ -78,9 +79,9 @@ function Header({ handleLogOut, token }: AppProps) {
               </NavLink>
             )}
             {!tokenn ? (
-              <Link to="/signup">
+              <Link to="/login">
                 <Button variant="contained" color="secondary">
-                  Sign Up
+                  Log in
                 </Button>
               </Link>
             ) : (

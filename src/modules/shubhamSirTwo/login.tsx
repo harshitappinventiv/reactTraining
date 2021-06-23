@@ -11,6 +11,7 @@ import {
 import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import validate, { Errors } from "./validationinfo";
+import api from "./api";
 
 // ******************************* components *******************************
 
@@ -31,11 +32,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Signup = ({ setLoading }: AppProps) => {
   const initialFormState: any = {
-    id: "",
-    fname: "",
-    lname: "",
-    email: "",
-    password: "",
+    name: "",
+    job: "",
   };
 
   const classes = useStyles();
@@ -62,13 +60,25 @@ const Signup = ({ setLoading }: AppProps) => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       const id = uuidv4();
-    //   console.log(values, id);
+      const URL = "https://reqres.in/api/users";
       setLoading(true);
-      setTimeout(() => {
-        localStorage.setItem("accessToken", id);
-        setLoading(false);
-        history.push("/product");
-      }, 2000);
+      api.createPostApiCall(
+        URL,
+        values,
+        (response: any) => {
+          const { data, status } = response;
+          if (status === 201) {
+            console.log(data);
+            localStorage.setItem("accessToken", id);
+            setValues(initialFormState);
+            setLoading(false);
+            history.push("/product");
+          }
+        },
+        (error: any) => {
+          console.log(error);
+        }
+      );
     }
   }, [errors]);
 
@@ -87,53 +97,30 @@ const Signup = ({ setLoading }: AppProps) => {
       >
         <Box className={classes.createGrid} component={Paper} p={3}>
           <TextField
-            error={!!errors.fname}
-            id="fname"
+            error={!!errors.name}
+            id="name"
             type="text"
-            name="fname"
-            label="fname"
-            placeholder="Enter your fname"
-            helperText={errors.fname && errors.fname}
+            name="name"
+            label="name"
+            placeholder="Enter your name"
+            helperText={errors.name && errors.name}
             variant="outlined"
-            value={values.fname}
+            value={values.name}
             onChange={handleChange}
           />
           <TextField
-            error={!!errors.lname}
-            id="lname"
+            error={!!errors.job}
+            id="job"
             type="text"
-            name="lname"
-            label="lname"
-            placeholder="Enter your lname"
-            helperText={errors.lname && errors.lname}
+            name="job"
+            label="job"
+            placeholder="Enter your job"
+            helperText={errors.job && errors.job}
             variant="outlined"
-            value={values.lname}
+            value={values.job}
             onChange={handleChange}
           />
-          <TextField
-            error={!!errors.email}
-            id="email"
-            type="text"
-            name="email"
-            label="email"
-            placeholder="Enter your email"
-            helperText={errors.email && errors.email}
-            variant="outlined"
-            value={values.email}
-            onChange={handleChange}
-          />
-          <TextField
-            error={!!errors.password}
-            id="password"
-            type="text"
-            name="password"
-            label="password"
-            placeholder="Enter your password"
-            helperText={errors.password && errors.password}
-            variant="outlined"
-            value={values.password}
-            onChange={handleChange}
-          />
+
           <Button color="primary" variant="contained" type="submit">
             Sign Up
           </Button>

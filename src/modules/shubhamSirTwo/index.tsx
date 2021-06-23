@@ -13,13 +13,13 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./header";
 import Home from "./home";
 import PrivateRoute from "./privateRoute";
-import Signup from "./signup";
+import Login from "./login";
 import Product from "./product";
 import ProductDetails from "./productDetails";
 
 export interface UserSchema {
   id: number;
-  fname: string;
+  name: string;
   lname: string;
   email: string;
   password: string;
@@ -63,8 +63,8 @@ function ShubhamSir() {
         <div className={classes.root}>
           <Box pt={9}>
             <Switch>
-              <Route exact path="/signup">
-                <Signup setLoading={setLoading} />
+              <Route exact path="/login">
+                <Login setLoading={setLoading} />
               </Route>
               <Route exact path="/" component={Home} />
               {/* protect routes */}
