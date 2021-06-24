@@ -34,7 +34,9 @@ const createGetApiCall = (
     });
 };
 
-export default {
+const api = {
   createPostApiCall,
   createGetApiCall,
 };
+
+export default api;

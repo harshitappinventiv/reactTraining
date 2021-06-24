@@ -11,6 +11,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 // import ShubhamSir from "./modules/shubhamSir";
 // import ShubhamSirTwo from "./modules/shubhamSirTwo";
 import Counter from "./modules/prakashRedux/screen/counter";
+import HomePage from "./modules/prakashRedux/screen/homePage";
+
 import { Provider } from "react-redux";
 import store from "./store";
 
@@ -34,6 +36,7 @@ function App() {
             {/* <ShubhamSir /> */}
             {/* <ShubhamSirTwo /> */}
             <Counter />
+            <HomePage />
           </div>
         </Router>
       </Provider>

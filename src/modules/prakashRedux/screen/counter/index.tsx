@@ -6,7 +6,11 @@ function Counter() {
   const dispatch = useDispatch();
   const { counter } = useSelector((state: any) => state.counterReducer);
   return (
-    <Box>
+    <Box
+      style={{
+        backgroundImage: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
+      }}
+    >
       <Typography variant="h4" gutterBottom>
         Counter: {counter}
       </Typography>
