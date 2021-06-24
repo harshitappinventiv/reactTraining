@@ -102,8 +102,8 @@ const Signup = ({ setLoading }: AppProps) => {
             id="name"
             type="text"
             name="name"
-            label="name"
-            placeholder="Enter your name"
+            label="fname"
+            placeholder="Enter your fname"
             helperText={errors.name && errors.name}
             variant="outlined"
             value={values.name}
@@ -114,8 +114,8 @@ const Signup = ({ setLoading }: AppProps) => {
             id="job"
             type="text"
             name="job"
-            label="job"
-            placeholder="Enter your job"
+            label="lname"
+            placeholder="Enter your lname"
             helperText={errors.job && errors.job}
             variant="outlined"
             value={values.job}

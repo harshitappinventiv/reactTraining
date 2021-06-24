@@ -9,28 +9,34 @@ import { BrowserRouter as Router } from "react-router-dom";
 // import EditScreen from "./modules/sachinSir/editScreen";
 // import VivekSir from "./modules/vivekSir";
 // import ShubhamSir from "./modules/shubhamSir";
-import ShubhamSirTwo from "./modules/shubhamSirTwo";
+// import ShubhamSirTwo from "./modules/shubhamSirTwo";
+import Counter from "./modules/prakashRedux/screen/counter";
+import { Provider } from "react-redux";
+import store from "./store";
 
 function App() {
   return (
     <>
-      <Router>
-        <div>
-          {/* <AssigmentOne/> */}
-          {/* <AssigmentTwo /> */}
-          {/* <AssigmentThreeFlex /> */}
-          {/* <AssigmentThreeGridMobileFirst /> */}
-          {/* <AssigmentFour /> */}
-          {/* <SushantSirAssignment /> */}
-          {/* <Switch>
+      <Provider store={store}>
+        <Router>
+          <div>
+            {/* <AssigmentOne/> */}
+            {/* <AssigmentTwo /> */}
+            {/* <AssigmentThreeFlex /> */}
+            {/* <AssigmentThreeGridMobileFirst /> */}
+            {/* <AssigmentFour /> */}
+            {/* <SushantSirAssignment /> */}
+            {/* <Switch>
             <Route exact path="/" component={SachinSir} />
             <Route path="/editScreen/:params" component={EditScreen} />
           </Switch> */}
-          {/* <VivekSir /> */}
-          {/* <ShubhamSir /> */}
-          <ShubhamSirTwo />
-        </div>
-      </Router>
+            {/* <VivekSir /> */}
+            {/* <ShubhamSir /> */}
+            {/* <ShubhamSirTwo /> */}
+            <Counter />
+          </div>
+        </Router>
+      </Provider>
     </>
   );
 }

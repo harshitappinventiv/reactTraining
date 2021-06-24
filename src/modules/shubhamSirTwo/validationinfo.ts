@@ -9,13 +9,13 @@ export default function validateInfo(values: any) {
   let errors: Errors = {};
 
   if (!values.name.trim()) {
-    errors.name = "name required";
+    errors.name = "fname required";
   }
   // else if (!/^[A-Za-z]+/.test(values.name.trim())) {
   //   errors.name = 'Enter a valid name';
   // }
   if (!values.job.trim()) {
-    errors.job = "job required";
+    errors.job = "lname required";
   }
 
   // if (!values.email) {
