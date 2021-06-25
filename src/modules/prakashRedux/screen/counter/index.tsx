@@ -16,21 +16,21 @@ function Counter() {
       </Typography>
       <Button
         variant="outlined"
-        color="primary"
+        color="secondary"
         onClick={() => dispatch(increment(2))}
       >
         Increment 2
       </Button>
       <Button
         variant="outlined"
-        color="primary"
+        color="secondary"
         onClick={() => dispatch(decrement(4))}
       >
         Decrement 4
       </Button>
       <Button
         variant="outlined"
-        color="primary"
+        color="secondary"
         onClick={() => dispatch(incrementAsyn(3))}
       >
         increment async 3

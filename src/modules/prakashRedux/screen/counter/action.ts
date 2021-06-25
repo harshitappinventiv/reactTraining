@@ -15,7 +15,13 @@ export const decrement = (num: number) => {
 };
 
 export const incrementAsyn = (num: number) => {
-  return (dispatch: Function) => {
+  return (dispatch: Function, getState: Function) => {
+    const { counter } = getState().counterReducer;
+
+    if (counter === 0) {
+      return;
+    }
+
     setTimeout(() => {
       dispatch(increment(num));
     }, 1000);
