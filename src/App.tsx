@@ -1,4 +1,6 @@
 import { BrowserRouter as Router } from "react-router-dom";
+import StateProvider from "./modules/sushantSirContext/stateProvider";
+
 // import AssigmentOne from "./modules/assignmentOne";
 // import AssigmentTwo from "./modules/assigmentTwo";
 // import AssigmentThreeFlex from "./modules/assigmentThree/usingFlex";
@@ -10,16 +12,19 @@ import { BrowserRouter as Router } from "react-router-dom";
 // import VivekSir from "./modules/vivekSir";
 // import ShubhamSir from "./modules/shubhamSir";
 // import ShubhamSirTwo from "./modules/shubhamSirTwo";
-import Counter from "./modules/prakashRedux/screen/counter";
-import HomePage from "./modules/prakashRedux/screen/homePage";
+// import Counter from "./modules/prakashRedux/screen/counter";
+// import HomePage from "./modules/prakashRedux/screen/homePage";
+import SushantSirContext from "./modules/sushantSirContext";
+import reducer, { initialState } from "./modules/sushantSirContext/reducer";
 
-import { Provider } from "react-redux";
-import store from "./store";
+// import { Provider } from "react-redux";
+// import store from "./store";
 
 function App() {
   return (
     <>
-      <Provider store={store}>
+      {/* <Provider store={store}> */}
+      <StateProvider initialState={initialState} reducer={reducer}>
         <Router>
           <div>
             {/* <AssigmentOne/> */}
@@ -35,11 +40,13 @@ function App() {
             {/* <VivekSir /> */}
             {/* <ShubhamSir /> */}
             {/* <ShubhamSirTwo /> */}
-            <Counter />
-            <HomePage />
+            {/* <Counter />
+            <HomePage /> */}
+            <SushantSirContext />
           </div>
         </Router>
-      </Provider>
+        {/* </Provider> */}
+      </StateProvider>
     </>
   );
 }
