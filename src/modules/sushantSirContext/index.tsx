@@ -86,7 +86,7 @@ function SushantSirContext() {
                 onChange={handleChange}
               />
             }
-            label={mode}
+            label={<Typography style={styles.text}>{mode}</Typography>}
             labelPlacement="top"
           />
           <Button
